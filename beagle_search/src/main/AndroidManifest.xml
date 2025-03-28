@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.leandroferreira.beagle_search">
 
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+
+        <!-- Beagle Debugging Configuration (Optional) -->
+        <meta-data
+            android:name="com.pandulapeter.beagle.DEBUG"
+            android:value="true" />
+
+    </application>
 </manifest>
