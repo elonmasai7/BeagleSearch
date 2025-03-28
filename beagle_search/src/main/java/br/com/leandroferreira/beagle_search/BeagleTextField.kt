@@ -1,21 +1,33 @@
 package br.com.leandroferreira.beagle_search
 
-import androidx.compose.material.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun BeagleInputText(modifier: Modifier) {
+fun BeagleInputText(
+    modifier: Modifier = Modifier,
+    placeholder: String = "Search..."
+) {
     var text by remember { mutableStateOf("") }
 
     TextField(
-        text,
-        onValueChange = { value -> text = value },
-        modifier = modifier
+        value = text,
+        onValueChange = { text = it },
+        modifier = modifier,
+        placeholder = { Text(placeholder) },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Text
+        )
     )
+}
+
+@Preview
+@Composable
+fun BeagleInputTextPreview() {
+    BeagleInputText()
 }
